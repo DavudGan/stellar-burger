@@ -35,3 +35,8 @@
   align-items: center;
   margin: 0 auto;
 }
+
+.noStyleLink {
+  text-decoration: none;
+  color: inherit;
+}

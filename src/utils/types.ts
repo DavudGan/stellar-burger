@@ -1,3 +1,5 @@
+import { type } from 'os';
+
 export type TIngredient = {
   _id: string;
   name: string;
