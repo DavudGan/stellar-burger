@@ -45,6 +45,10 @@ const burgerConstructorSlice = createSlice({
         state.constructorItems.ingredients.push(action.payload);
       }
     },
+    clearConstructor(state) {
+      state.constructorItems.bun = null;
+      state.constructorItems.ingredients = [];
+    },
     removeIngredient(state, action: PayloadAction<string>) {
       state.constructorItems.ingredients =
         state.constructorItems.ingredients.filter(
@@ -100,6 +104,7 @@ export const {
   clearOrder,
   removeIngredient,
   moveIngredientUp,
-  moveIngredientDown
+  moveIngredientDown,
+  clearConstructor
 } = burgerConstructorSlice.actions;
 export default burgerConstructorSlice.reducer;

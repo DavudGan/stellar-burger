@@ -1,7 +1,6 @@
-import { AppDispatch, RootState } from '../../services/store';
+import { RootState, useDispatch, useSelector } from '../../services/store';
 import { Navigate } from 'react-router';
 import { Preloader } from '@ui';
-import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getUser } from '../../services/userSlais';
@@ -17,7 +16,7 @@ export const ProtectedRoute = ({
 }: ProtectedRouteProps) => {
   const { loading, user } = useSelector((state: RootState) => state.user);
   const location = useLocation();
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getUser());

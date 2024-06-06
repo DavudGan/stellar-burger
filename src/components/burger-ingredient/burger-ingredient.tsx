@@ -4,10 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { BurgerIngredientUI } from '@ui';
 import { TBurgerIngredientProps } from './type';
-import { TConstructorIngredient } from '@utils-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch } from '../../services/store';
 import { addIngredient } from '../../services/burgerConstructorSlice';
-import { match } from 'assert';
 
 export const BurgerIngredient: FC<TBurgerIngredientProps> = memo(
   ({ ingredient, count }) => {

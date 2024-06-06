@@ -1,7 +1,6 @@
 import { FC, SyntheticEvent, useEffect, useState } from 'react';
 import { LoginUI } from '@ui-pages';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from 'src/services/store';
+import { useDispatch, useSelector, RootState } from '../../services/store';
 import { loginUser } from '../../services/userSlais';
 import { useNavigate } from 'react-router-dom';
 import { Preloader } from '@ui';
@@ -11,7 +10,7 @@ export const Login: FC = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch();
   const { loading, error, user } = useSelector(
     (state: RootState) => state.user
   );

@@ -4,12 +4,7 @@ import { TOrder } from '@utils-types';
 import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getFeed } from '../../services/feedSlice';
-import {
-  AppDispatch,
-  RootState,
-  useDispatch,
-  useSelector
-} from '../../services/store';
+import { RootState, useDispatch, useSelector } from '../../services/store';
 
 export const Feed: FC = () => {
   const { number } = useParams<{ number: string }>();

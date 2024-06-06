@@ -30,37 +30,25 @@ const initialState: UserState = {
 
 export const registerUser = createAsyncThunk(
   'user/register',
-  async (userData: TRegisterData, { rejectWithValue }) => {
-    try {
-      const response = await registerUserApi(userData);
-      return response;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
+  async (userData: TRegisterData) => {
+    const response = await registerUserApi(userData);
+    return response;
   }
 );
 
 export const forgotPasswordUser = createAsyncThunk(
   'user/forgotPassword',
-  async (data: { email: string }, { rejectWithValue }) => {
-    try {
-      const response = await forgotPasswordApi(data);
-      return response;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
+  async (data: { email: string }) => {
+    const response = await forgotPasswordApi(data);
+    return response;
   }
 );
 
 export const updateUser = createAsyncThunk(
   'user/update',
-  async (userData: TRegisterData, { rejectWithValue }) => {
-    try {
-      const response = await updateUserApi(userData);
-      return response;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
+  async (userData: TRegisterData) => {
+    const response = await updateUserApi(userData);
+    return response;
   }
 );
 
@@ -76,13 +64,9 @@ export const logoutUser = createAsyncThunk('user/logoutUser', async () => {
 
 export const loginUser = createAsyncThunk(
   'user/login',
-  async (loginData: TLoginData, { rejectWithValue }) => {
-    try {
-      const response = await loginUserApi(loginData);
-      return response;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
+  async (loginData: TLoginData) => {
+    const response = await loginUserApi(loginData);
+    return response;
   }
 );
 
