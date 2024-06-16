@@ -1,0 +1,70 @@
+{
+  "success": true,
+  "data": [
+    {
+      "_id": "1",
+      "name": "Филе Люминесцентного тетраодонтимформа",
+      "type": "main",
+      "proteins": 255,
+      "fat": 22,
+      "carbohydrates": 400,
+      "calories": 400,
+      "price": 1500,
+      "image": "",
+      "image_large": "",
+      "image_mobile": ""
+    },
+    {
+      "_id": "2",
+      "name": "Биокотлета из марсианской Магнолии",
+      "type": "main",
+      "proteins": 255,
+      "fat": 22,
+      "carbohydrates": 400,
+      "calories": 400,
+      "price": 2000,
+      "image": "",
+      "image_large": "",
+      "image_mobile": ""
+    },
+    {
+      "_id": "3",
+      "name": "Мини-салат Экзо-Плантаго",
+      "type": "main",
+      "proteins": 255,
+      "fat": 22,
+      "carbohydrates": 10,
+      "calories": 50,
+      "price": 500,
+      "image": "",
+      "image_large": "",
+      "image_mobile": ""
+    },
+    {
+      "_id": "4",
+      "name": "Флюоресцентная булка R2-D3",
+      "type": "bun",
+      "proteins": 255,
+      "fat": 22,
+      "carbohydrates": 400,
+      "calories": 400,
+      "price": 1500,
+      "image": "",
+      "image_large": "",
+      "image_mobile": ""
+    },
+    {
+      "_id": "5",
+      "name": "Мини-салат Экзо-Плантаго",
+      "type": "sauce",
+      "proteins": 255,
+      "fat": 22,
+      "carbohydrates": 10,
+      "calories": 50,
+      "price": 500,
+      "image": "",
+      "image_large": "",
+      "image_mobile": ""
+    }
+  ]
+}
