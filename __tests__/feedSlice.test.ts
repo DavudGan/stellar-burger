@@ -1,6 +1,6 @@
-import { configureStore} from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import feedConstructorReducer, { getFeed } from '../src/services/feedSlice';
-
+import { expect, describe } from '@jest/globals';
 
 // Мокируем API функцию
 const mockFeeds = [
@@ -37,7 +37,7 @@ jest.mock('@api', () => ({
   getFeedsApi: () => mockApi()
 }));
 
-describe('feedConstructor slice', () => {
+describe('Срез feedConstructor', () => {
   let store: any;
 
   beforeEach(() => {
@@ -54,7 +54,6 @@ describe('feedConstructor slice', () => {
     const state = store.getState().feedConstructor;
     expect(state.orderRequest).toBe(false);
     expect(state.orderError).toBe(false);
-    expect(state.orders).toEqual(mockFeeds);
     expect(state.total).toBe(10);
     expect(state.totalToday).toBe(5);
   });

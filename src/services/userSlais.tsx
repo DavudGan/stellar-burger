@@ -29,44 +29,72 @@ const initialState: UserState = {
 };
 
 export const registerUser = createAsyncThunk(
-  'user/register',
-  async (userData: TRegisterData) => {
-    const response = await registerUserApi(userData);
-    return response;
+  'user/registerUser',
+  async (userData: TRegisterData, { rejectWithValue }) => {
+    try {
+      const response = await registerUserApi(userData);
+      return response;
+    } catch (error) {
+      return rejectWithValue((error as Error).message);
+    }
   }
 );
 
-export const forgotPasswordUser = createAsyncThunk(
-  'user/forgotPassword',
-  async (data: { email: string }) => {
-    const response = await forgotPasswordApi(data);
-    return response;
+export const loginUser = createAsyncThunk(
+  'user/loginUser',
+  async (loginData: TLoginData, { rejectWithValue }) => {
+    try {
+      const response = await loginUserApi(loginData);
+      return response;
+    } catch (error) {
+      return rejectWithValue((error as Error).message);
+    }
+  }
+);
+
+export const getUser = createAsyncThunk(
+  'user/getUser',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await getUserApi();
+      return response.user;
+    } catch (error) {
+      return rejectWithValue((error as Error).message);
+    }
+  }
+);
+
+export const logoutUser = createAsyncThunk(
+  'user/logoutUser',
+  async (_, { rejectWithValue }) => {
+    try {
+      await logoutApi();
+    } catch (error) {
+      return rejectWithValue((error as Error).message);
+    }
   }
 );
 
 export const updateUser = createAsyncThunk(
-  'user/update',
-  async (userData: TRegisterData) => {
-    const response = await updateUserApi(userData);
-    return response;
+  'user/updateUser',
+  async (userData: Partial<TRegisterData>, { rejectWithValue }) => {
+    try {
+      const response = await updateUserApi(userData);
+      return response.user;
+    } catch (error) {
+      return rejectWithValue((error as Error).message);
+    }
   }
 );
 
-export const getUser = createAsyncThunk('user/getUser', async () => {
-  const response = await getUserApi();
-  return response;
-});
-
-export const logoutUser = createAsyncThunk('user/logoutUser', async () => {
-  const response = await logoutApi();
-  return response;
-});
-
-export const loginUser = createAsyncThunk(
-  'user/login',
-  async (loginData: TLoginData) => {
-    const response = await loginUserApi(loginData);
-    return response;
+export const forgotPasswordUser = createAsyncThunk(
+  'user/forgotPasswordUser',
+  async (data: { email: string }, { rejectWithValue }) => {
+    try {
+      await forgotPasswordApi(data);
+    } catch (error) {
+      return rejectWithValue((error as Error).message);
+    }
   }
 );
 
@@ -126,7 +154,7 @@ const userSlice = createSlice({
       })
       .addCase(getUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload.user;
+        state.user = action.payload;
       })
       .addCase(getUser.rejected, (state, action) => {
         state.loading = false;
@@ -154,7 +182,7 @@ const userSlice = createSlice({
       })
       .addCase(updateUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload.user;
+        state.user = action.payload;
       })
       .addCase(updateUser.rejected, (state, action) => {
         state.loading = false;
