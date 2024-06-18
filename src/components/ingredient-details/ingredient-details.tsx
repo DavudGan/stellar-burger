@@ -19,7 +19,6 @@ export const IngredientDetails: FC = () => {
     ];
     return allIngredients.find((ingredient) => ingredient._id === id);
   });
-
   if (!ingredientData) {
     return <Preloader />;
   }

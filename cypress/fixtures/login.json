@@ -1,0 +1,6 @@
+{
+    "success":true,
+    "accessToken":"fakeA",
+    "refreshToken":"faleR",
+    "user":{"emaol":"davud233@mail.gu", "name":"davud"}
+}
