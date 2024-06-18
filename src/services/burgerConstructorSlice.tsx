@@ -30,6 +30,7 @@ export const placeOrder = createAsyncThunk(
   'burgerConstructor/placeOrder',
   async (ingredientIds: string[]) => {
     const response = await orderBurgerApi(ingredientIds);
+    console.log(response)
     return response.order;
   }
 );
@@ -108,3 +109,4 @@ export const {
   clearConstructor
 } = burgerConstructorSlice.actions;
 export default burgerConstructorSlice.reducer;
+
